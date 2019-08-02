@@ -105,8 +105,6 @@ th, td {
 tr:nth-child(even) {background-color: #f2f2f2;}
 
 
-
-
                     
         </style>
       </head>
@@ -130,24 +128,21 @@ tr:nth-child(even) {background-color: #f2f2f2;}
                 -->
 
 <div id = 'modal-container' class="modal-container"></div>
-
-<br>
-<br>
                     <!-- index is used to check with current question index -->
                 <div v-for="(question, index) in quiz.questions">
                   <!-- Hide all questions, show only the one with index === to current question index -->
                   <div v-show="index === questionIndex">
                     <h1 class='heading text-md-center text-sm-center  text-xs-right' style = 'border: #4bafe8 solid 1px; margin-bottom: 50px; border-radius:30px'>  </i>{{ quiz.title }} . Question {{questionIndex}} of 5</h1>
-                                        <v-btn  color="#4bafe8"  v-if="questionIndex > 1" v-on:click="prev" style = 'color:white;display: block'>
-                            <- Return to previous question
+                                        <v-btn  color="#4bafe8"  v-if="questionIndex > 1" v-on:click="prev" style = 'color:white;display: block; min-width: 15%;border-radius: 15px;' >
+                                                <span><i class="fas fa-long-arrow-alt-left"> </i> Return to previous question</span>
                           </v-btn>
                           <br>
-                    <h2 class="text-md-center text-sm-center text-xs-center">{{ question.text }}</h2>
+                    <h2 class="text-md-center text-sm-center text-xs-center" style = 'margin-bottom: 25px'>{{ question.text }}</h2>
                     
                     <div class="text-md-center text-sm-center  text-xs-center" style = 'align-content:center'> 
 
 
-                      <table style = 'width:50%; margin-left:25%'>
+                      <table style = 'width:50%; margin-left:25%;'>
                         <tr v-for="response in question.responses" style = 'align-content: left; width:50%;'> 
                           <td style = 'align-content: left;'> 
 
@@ -180,7 +175,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
                     <v-layout row justify-center>
                       <v-dialog v-model="dialog">
                         <template v-slot:activator="{ on }">
-                          <v-btn dark v-on="on" color="#4bafe8" style = 'width:50%;'>Next question</v-btn>
+                          <v-btn dark v-on="on" color="#4bafe8" style = 'width:50%;border-radius: 15px;margin-top:25px'>Next question</v-btn>
                         </template>
                         <v-card
                         color="primary"
